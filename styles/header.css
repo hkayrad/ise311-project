@@ -82,6 +82,10 @@
   color: #484848;
 }
 
+.header .header-functions .other .search input:focus {
+	outline: none;
+}
+
 .header .header-functions .other .search .search-icon-wrapper {
   position: absolute;
   z-index: 2;
