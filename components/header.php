@@ -42,9 +42,9 @@
                 <div class="my-account">
                     <img id="account-icon" src="./assets/icons/account.svg" alt="">
                     <div class="outer-wrapper">
-                        <p id="location-button-title">Hesabım</p>
+                        <p id="account-button-title">Hesabım</p>
                         <div class="inner-wrapper">
-                            <p id="location-button">Giriş Yap</p>
+                            <p id="account-button">Giriş Yap</p>
                         </div>
                     </div>
                     <img id="chevron" src="./assets/icons/chevron_account.svg" alt="">
