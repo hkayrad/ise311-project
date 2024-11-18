@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="./index.css">
-<link rel="stylesheet" href="./styles/header.css">
+<link rel="stylesheet" href="./styles/header/header.css">
 
 <div class="header-wrapper">
     <div class="header">
