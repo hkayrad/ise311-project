@@ -56,5 +56,5 @@
             </div>
         </div>
     </div>
-    <img id="top-accent" src="./assets/brand/accent.svg" alt="">
+    <img id="bottom-accent" src="./assets/brand/accent.svg" alt="">
 </div>

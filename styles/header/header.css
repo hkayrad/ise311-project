@@ -190,7 +190,7 @@
   line-height: 1.2;
   font-weight: 700;
 }
-.header-wrapper #top-accent {
+.header-wrapper #bottom-accent {
   position: absolute;
   bottom: -8px;
   width: 100%;
