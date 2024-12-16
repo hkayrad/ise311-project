@@ -9,7 +9,7 @@
 <body style="background-color: rgb(245, 245, 245);">
     <div class="header" style="background-color: white">
     <p style="padding: 10px;">
-    <a href="/">
+    <a href="./../">
         <img src="../assets/brand/logo.svg" alt="" style="margin: 0px;">
         </a>
         <br><span>Premium'u</span> keşfet

@@ -1,0 +1,75 @@
+body #title {
+  margin: 64px 10vw;
+}
+body #title h1 {
+  font-weight: 400;
+}
+body #content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 64px 10vw;
+  gap: 32px;
+}
+body #content #aside {
+  border: 1px solid #c1c1c1;
+  border-radius: 12px;
+  padding: 16px;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+}
+body #content #aside #filterTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body #content #aside #filterTitle button {
+  padding: 4px 8px;
+  background-color: #ff6000;
+  outline: none;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
+body #content #aside #filterTitle button:hover {
+  cursor: pointer;
+}
+body #content #aside span {
+  display: flex;
+  width: 100%;
+  height: 1px;
+  background-color: #c1c1c1;
+  margin: 8px 0 0 0;
+}
+body #content #aside .filters {
+  display: flex;
+  flex-direction: column;
+}
+body #content #aside .filters h4 {
+  margin: 12px 0 8px 0;
+}
+body #content #aside .filters button[type=submit] {
+  padding: 12px;
+  background-color: #ff6000;
+  outline: none;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin: 12px 0 0 0;
+}
+body #content #aside .filters #price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body #content #aside .filters #price input {
+  width: 45%;
+  padding: 8px;
+  border: 1px solid #c1c1c1;
+  border-radius: 6px;
+}
+body #content #mainContent {
+  background: #f1f1f1;
+  width: 100%;
+}/*# sourceMappingURL=index.css.map */

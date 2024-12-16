@@ -4,7 +4,7 @@
 <div class="header-wrapper">
     <div class="header">
         <div class="logo-container">
-            <a href="/">
+            <a href="./">
                 <img src="./assets/brand/logo.svg" alt="">
             </a>
             <p><span>Premium'u</span> keşfet</p>
@@ -22,13 +22,13 @@
                 <a href="">Hepsiburada'da Satıcı Ol</a>
             </div>
             <div class="other">
-                <div class="search">
+                <form class="search" action="./" method="GET"> <!-- Search function -->
                     <img id="accent" src="./assets/brand/accent.svg" alt="">
                     <div class="search-icon-wrapper">
                         <img src="./assets/icons/search.svg">
                     </div>
-                    <input type="text" placeholder="Ürün, kategori veya marka ara" />
-                </div>
+                    <input type="search" name="s" placeholder="Ürün, kategori veya marka ara" />
+                </form>
                 <div class="location">
                     <img id="location-icon" src="./assets/icons/location.svg" alt="">
                     <div class="outer-wrapper">
