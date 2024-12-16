@@ -24,7 +24,9 @@
     <?php
     include './components/header.php'; //? Put header to index.php
     ?>
-
+    <div id="title">
+        <h1>Bilgisayar Fiyatları ve Modelleri</h1>
+    </div>
     <div id="content">
         <div id="aside">
             <div id="filterTitle">
