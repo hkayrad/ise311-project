@@ -27,7 +27,7 @@
                     <div class="search-icon-wrapper">
                         <img src="./assets/icons/search.svg">
                     </div>
-                    <input type="text" name="s" placeholder="Ürün, kategori veya marka ara" />
+                    <input type="search" name="s" placeholder="Ürün, kategori veya marka ara" />
                 </form>
                 <div class="location">
                     <img id="location-icon" src="./assets/icons/location.svg" alt="">
