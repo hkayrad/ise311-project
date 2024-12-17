@@ -15,13 +15,14 @@
 
     <script>
         const resetSearchParams = () => {
-            window.location.href =  window.location.href.split("?")[0];            
+            window.location.href = window.location.href.split("?")[0];
         }
     </script>
 </head>
 
 <body>
     <?php
+    include "./config.php"; //? Connect to database
     include './components/header.php'; //? Put header to index.php
     ?>
     <div id="title">
@@ -37,6 +38,10 @@
 
             <form class="filters" action="./" method="GET">
                 <h4>Tür</h4>
+                <?php
+                $searchQuery = isset($_GET['s']) ? $_GET['s'] : '';
+                echo "<input style=\"display:none\" type=\"text\" name=\"s\" value=\"" . $searchQuery . "\" />";
+                ?> <!-- //! Prevent the search from disappearing after using filters -->
                 <div>
                     <input type="checkbox" name="type[]" value="computer" id="computer" />
                     <label for="computer">Bilgisayar</label>
@@ -46,14 +51,24 @@
                     <label for="tablet">Tablet</label>
                 </div>
                 <h4>Marka</h4>
-                <div>
-                    <input type="checkbox" name="brand[]" value="asus" id="asus" />
-                    <label for="asus">Asus</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="brand[]" value="acer" id="acer" />
-                    <label for="acer">Acer</label>
-                </div><!--//! Add more -->
+
+                <?php /* .//? Dynamically add brands */
+
+                $brandQuery = "SELECT DISTINCT brand FROM products";
+                $brandResult = mysqli_query($conn, $brandQuery);
+
+                if (!$brandResult) {
+                    die("Query error! " . mysqli_error($conn));
+                } else {
+                    while ($row = mysqli_fetch_assoc($brandResult)) {
+                        echo "<div>
+                            <input type=\"checkbox\" name=\"brand[]\" value=\"" . strtolower($row['brand']) . "\" id=\"" . $row['brand'] . "\" />
+                            <label for=\"" . $row['brand'] . "\">" . $row['brand'] . "</label>
+                        </div>";
+                    }
+                }
+
+                ?>
                 <h4>Fiyat</h4>
                 <div id="price">
                     <input type="number" name="price[min]" placeholder="Min" />
@@ -61,26 +76,24 @@
                     <input type="number" name="price[max]" placeholder="Max" />
                 </div>
                 <h4>Rating</h4>
-                <div>
-                    <input type="radio" name="rating" value="5" id="5" />
-                    <label for="5">⭐⭐⭐⭐⭐</label>
-                </div>
-                <div>
-                    <input type="radio" name="rating" value="4" id="4" />
-                    <label for="4">⭐⭐⭐⭐</label>
-                </div>
-                <div>
-                    <input type="radio" name="rating" value="3" id="3" />
-                    <label for="3">⭐⭐⭐</label>
-                </div>
-                <div>
-                    <input type="radio" name="rating" value="2" id="2" />
-                    <label for="2">⭐⭐</label>
-                </div>
-                <div>
-                    <input type="radio" name="rating" value="1" id="1" />
-                    <label for="1">⭐</label>
-                </div>
+                <?php //? Dynamically add ratings
+
+                $ratingQuery = "SELECT DISTINCT rating FROM products ORDER BY rating DESC";
+                $ratingResult = mysqli_query($conn, $ratingQuery);
+
+                if (!$ratingResult) {
+                    die("Query error! " . mysqli_error($conn));
+                } else {
+                    while ($row = mysqli_fetch_assoc($ratingResult)) {
+                        echo "<div>
+                            <input type=\"radio\" name=\"rating\" value=\"" . $row['rating'] . "\" id=\"" . $row['rating'] . "\" />
+                            <label for=\"" . $row['rating'] . "\">" . str_repeat('⭐', $row['rating']) . "</label>
+                        </div>";
+                    }
+                }
+
+                ?>
+
                 <h4>CPU</h4>
                 <div>
                     <input type="checkbox" name="cpu[]" value="intel" id="intel" />
@@ -90,36 +103,43 @@
                     <input type="checkbox" name="cpu[]" value="amd" id="amd" />
                     <label for="amd">AMD</label>
                 </div>
+
                 <h4>RAM</h4>
-                <div>
-                    <input type="checkbox" name="ram[]" value="8" id="8" />
-                    <label for="8">8 GB</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="ram[]" value="16" id="16" />
-                    <label for="16">16 GB</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="ram[]" value="32" id="32" />
-                    <label for="32">32 GB</label>
-                </div>
+                <?php //? Dynamically add RAM sizes
+
+                $ramQuery = "SELECT DISTINCT ram FROM products";
+                $ramResult = mysqli_query($conn, $ramQuery);
+
+                if (!$ramResult) {
+                    die("Query error! " . mysqli_error($conn));
+                } else {
+                    while ($row = mysqli_fetch_assoc($ramResult)) {
+                        echo "<div>
+                            <input type=\"checkbox\" name=\"ram[]\" value=\"" . $row['ram'] . "\" id=\"" . $row['ram'] . "\" />
+                            <label for=\"" . $row['ram'] . "\">" . $row['ram'] . " GB</label>
+                        </div>";
+                    }
+                }
+                ?>
+
                 <h4>Depolama</h4>
-                <div>
-                    <input type="checkbox" name="storage[]" value="256" id="256" />
-                    <label for="256">256 GB</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="storage[]" value="512" id="512" />
-                    <label for="512">512 GB</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="storage[]" value="1024" id="1024" />
-                    <label for="1024">1 TB</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="storage[]" value="2048" id="2048" />
-                    <label for="2048">2 TB</label>
-                </div>
+                <?php //? Dynamically add storage sizes
+
+                $storageQuery = "SELECT DISTINCT storage FROM products";
+                $storageResult = mysqli_query($conn, $storageQuery);
+
+                if (!$storageResult) {
+                    die("Query error! " . mysqli_error($conn));
+                } else {
+                    while ($row = mysqli_fetch_assoc($storageResult)) {
+                        echo "<div>
+                            <input type=\"checkbox\" name=\"storage[]\" value=\"" . $row['storage'] . "\" id=\"" . $row['storage'] . "\" />
+                            <label for=\"" . $row['storage'] . "\">" . $row['storage'] . " GB</label>
+                        </div>";
+                    }
+                }
+                ?>
+
                 <button type="submit">Filtreleri Kaydet</button>
             </form>
         </div>
