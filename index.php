@@ -37,6 +37,10 @@
 
             <form class="filters" action="./" method="GET">
                 <h4>Tür</h4>
+                <?php 
+                $x = isset($_GET['s']) ? $_GET['s'] : '';
+                echo "<input style=\"display:none\" type=\"text\" name=\"s\" value=\"".$x."\" />";
+                ?> <!-- //! Prevent the search from disappearing after using filters -->
                 <div>
                     <input type="checkbox" name="type[]" value="computer" id="computer" />
                     <label for="computer">Bilgisayar</label>
