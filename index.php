@@ -47,14 +47,25 @@
 				$searchQuery = isset($_GET['s']) ? $_GET['s'] : '';
 				echo "<input style=\"display:none\" type=\"text\" name=\"s\" value=\"" . $searchQuery . "\" />";
 				?> <!-- //! Prevent the search from disappearing after using filters -->
-				<div>
-					<input type="checkbox" name="type[]" value="computer" id="computer" />
-					<label for="computer">Bilgisayar</label>
-				</div>
-				<div>
-					<input type="checkbox" name="type[]" value="tablet" id="tablet" />
-					<label for="tablet">Tablet</label>
-				</div>
+				
+				<?php //? Dynamically add types
+			
+				$typeQuery = "SELECT DISTINCT type FROM products";
+				$typeResult = mysqli_query($conn, $typeQuery);
+
+				if (!$typeResult) {
+					die("Query error! " . mysqli_error($conn));
+				} else {
+					while ($row = mysqli_fetch_assoc($typeResult)) {
+						echo "<div>
+							<input type=\"checkbox\" name=\"type[]\" value=\"" . strtolower($row['type']) . "\" id=\"" . $row['type'] . "\" />
+							<label for=\"" . $row['type'] . "\">" . ucfirst($row['type']) . "</label>
+						</div>";
+					}
+				}
+				?>
+
+
 				<h4>Marka</h4>
 
 				<?php /* .//? Dynamically add brands */
@@ -100,14 +111,21 @@
 				?>
 
 				<h4>CPU</h4>
-				<div>
-					<input type="checkbox" name="cpu[]" value="intel" id="intel" />
-					<label for="intel">Intel</label>
-				</div>
-				<div>
-					<input type="checkbox" name="cpu[]" value="amd" id="amd" />
-					<label for="amd">AMD</label>
-				</div>
+				<?php
+				$cpuQuery = "SELECT DISTINCT cpu FROM products";
+				$cpuResult = mysqli_query($conn, $cpuQuery);
+
+				if (!$cpuResult) {
+					die("Query error! " . mysqli_error($conn));
+				} else {
+					while ($row = mysqli_fetch_assoc($cpuResult)) {
+						echo "<div>
+							<input type=\"checkbox\" name=\"cpu[]\" value=\"" . $row['cpu'] . "\" id=\"" . $row['cpu'] . "\" />
+							<label for=\"" . $row['cpu'] . "\">" . $row['cpu'] . "</label>
+						</div>";
+					}
+				}
+				?>
 
 				<h4>RAM</h4>
 				<?php //? Dynamically add RAM sizes
@@ -169,18 +187,16 @@
 				die("Query error! " . mysqli_error($conn));
 			} else {
 				while ($row = mysqli_fetch_assoc($prodcuts)) {
-					echo "<p>" . $row['brand'] . "</p>";
+					echo "<a href='./products.php?id=".$row['id']."' id='productCard'>
+							<img id='productImg' src='https://placehold.co/600x400'/>
+				<h2>Product Name</h2>
+				<p></p>
+			</a>";
 				}
 			}
 
 			?>
-
-			<div id="productCard">
-				<img id="productImg" src="https://placehold.co/600x400" alt="">
-			</div>
-
 		</div>
-	</div>
 </body>
 
 </html>
