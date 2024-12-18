@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'password' => $hashedPassword
             ]);
 
-            echo "<p style='color:green;'>Kayıt başarılı! Giriş yapmak için <a href='login.php'>tıklayın</a>.</p>";
+            echo "<p style='color:green;'>Kayıt başarılı! Giriş yapmak için <a href='./login.php'>tıklayın</a>.</p>";
         }
 
     } catch (PDOException $e) {

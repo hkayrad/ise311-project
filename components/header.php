@@ -4,7 +4,7 @@
 <div class="header-wrapper">
     <div class="header">
         <div class="logo-container">
-            <a href="/">
+            <a href="./">
                 <img src="./assets/brand/logo.svg" alt="">
             </a>
             <p><span>Premium'u</span> keşfet</p>
@@ -44,7 +44,7 @@
                     <div class="outer-wrapper">
                         <p id="account-button-title">Hesabım</p>
                         <div class="inner-wrapper">
-                            <a href="/login" id="account-button">Giriş Yap</a>
+                            <a href="./pages/login.php" id="account-button">Giriş Yap</a>
                         </div>
                     </div>
                     <img id="chevron" src="./assets/icons/chevron_account.svg" alt="">
