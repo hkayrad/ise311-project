@@ -54,6 +54,7 @@
 
         body {
             display: flex;
+            flex-direction: column-reverse;
             justify-content: center; 
             align-items: center; 
             background: #f0f0f0;
