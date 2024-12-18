@@ -70,15 +70,26 @@ body #content #aside .filters #price input {
   border-radius: 6px;
 }
 body #content #mainContent {
-  background: #f1f1f1;
   width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: -moz-fit-content;
+  height: fit-content;
+  gap: 24px;
 }
 body #content #mainContent #productCard {
-  width: 200px;
-  height: 300px;
+  width: 300px;
+  height: -moz-fit-content;
+  height: fit-content;
   display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 16px;
+  border-radius: 8px;
+  border: #c1c1c1 1px solid;
 }
 body #content #mainContent #productCard #productImg {
   width: 100%;
-  height: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
 }/*# sourceMappingURL=index.css.map */
