@@ -13,10 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user && password_verify($password, $user['password'])) {
-            $_SESSION['user_id'] = $user['user_id'];
-            $_SESSION['username'] = $user['username'];
-
-            header("Location: ../index.php");
+            echo "<script>
+                    sessionStorage.setItem('user_id', '{$user['user_id']}');
+                    sessionStorage.setItem('username', '{$user['username']}');
+                    window.location.href = '../index.php';
+                  </script>";
             exit;
         } else {
             echo "<p style='color:red;'>Kullanıcı adı veya şifre hatalı.</p>";
