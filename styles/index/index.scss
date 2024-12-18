@@ -86,10 +86,12 @@ body {
       width: 100%;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
+      height: fit-content;
+      gap: 24px;
 
       #productCard {
         width: 300px;
-        height: 300px;
+        height: fit-content;
         display: flex;
         flex-direction: column;
         justify-content: start;

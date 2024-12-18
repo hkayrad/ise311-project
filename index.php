@@ -189,8 +189,8 @@
 				while ($row = mysqli_fetch_assoc($prodcuts)) {
 					echo "<a href='./products.php?id=".$row['id']."' id='productCard'>
 							<img id='productImg' src='https://placehold.co/600x400'/>
-				<h2>Product Name</h2>
-				<p></p>
+				<h2>".$row['brand']." ".$row['model']."</h2>
+				<p>".$row['price']." ₺</p>
 			</a>";
 				}
 			}
