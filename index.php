@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/brand/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./index.css"> <!-- Reset margin, padding and box sizing -->
+    <link rel="stylesheet" href="./index.css"> 
     <link rel="stylesheet" href="./styles/index/index.css"> <!-- Page styles -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,6 +21,11 @@
 </head>
 
 <body>
+    <div id="form">
+
+
+
+    </div>
     <?php
     include "./config.php"; //? Connect to database
     include './components/header.php'; //? Put header to index.php

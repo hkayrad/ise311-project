@@ -44,7 +44,7 @@
                     <div class="outer-wrapper">
                         <p id="account-button-title">Hesabım</p>
                         <div class="inner-wrapper">
-                            <p id="account-button">Giriş Yap</p>
+                            <a href="./pages/login.php" id="account-button">Giriş Yap</a>
                         </div>
                     </div>
                     <img id="chevron" src="./assets/icons/chevron_account.svg" alt="">
