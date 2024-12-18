@@ -45,6 +45,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="password" id="password" name="password" required><br><br>
         
         <input type="submit" value="Giriş Yap">
+
+       
     </form>
+    <a href="./register.php">Kayıt Ol</a>
 </body>
 </html>
