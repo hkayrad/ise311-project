@@ -221,8 +221,9 @@
                 // Display the products
                 while ($row = mysqli_fetch_assoc($prodcuts)) {
                     echo "<a href='./products.php?id=" . $row['id'] . "' id='productCard'>
-                            <img id='productImg' src='" . $row['images'] . "'/>
+                            <img id='productImg' src='" . $row['image'] . "'/>
                             <h2>" . $row['brand'] . " " . $row['model'] . "</h2>
+							<p>". str_repeat("⭐", $row['rating'])."</p>
                             <p>" . $row['price'] . " ₺</p>
                           </a>";
                 }
