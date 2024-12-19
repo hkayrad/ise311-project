@@ -14,6 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("Query error! " . mysqli_error($conn));
     } else {
         echo "Ürün başarıyla sepetten çıkarıldı.";
-        header("Location: ../cart.php");
+        header("Location: ../pages/cart.php");
     }
 }
