@@ -188,7 +188,7 @@
 			} else {
 				while ($row = mysqli_fetch_assoc($prodcuts)) {
 					echo "<a href='./products.php?id=".$row['id']."' id='productCard'>
-							<img id='productsImg' src='".$row['images']."'/>
+							<img id='productImg' src='".$row['images']."'/>
 				<h2>".$row['brand']." ".$row['model']."</h2>
 				<p>".$row['price']." ₺</p>
 			</a>";
