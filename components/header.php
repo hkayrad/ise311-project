@@ -42,7 +42,6 @@
                 <div class="my-account">
                     <img id="account-icon" src="./assets/icons/account.svg" alt="">
                     <div class="outer-wrapper">
-                        <p id="account-button-title">Hesabım</p>
                         <div class="inner-wrapper">
                             <a href="./pages/login.php" id="account-button">Giriş Yap</a>
                         </div>

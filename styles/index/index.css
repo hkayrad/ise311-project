@@ -5,10 +5,8 @@ body #title h1 {
   font-weight: 400;
 }
 body #content {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin: 64px 10vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 32px;
 }
 body #content #aside {
@@ -78,7 +76,7 @@ body #content #mainContent {
   gap: 24px;
 }
 body #content #mainContent #productCard {
-  width: 300px;
+  width: 100%;
   height: -moz-fit-content;
   height: fit-content;
   display: flex;
@@ -89,7 +87,6 @@ body #content #mainContent #productCard {
   border: #c1c1c1 1px solid;
 }
 body #content #mainContent #productCard #productImg {
-  width: 100%;
   height: -moz-fit-content;
   height: fit-content;
 }/*# sourceMappingURL=index.css.map */
