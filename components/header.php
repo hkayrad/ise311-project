@@ -59,31 +59,36 @@
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const accountContent = document.getElementById('account-content');
-    const username = sessionStorage.getItem('username');
-    if (username) {
-        
-        accountContent.innerHTML = `
+    document.addEventListener('DOMContentLoaded', () => {
+        const accountContent = document.getElementById('account-content');
+        const username = sessionStorage.getItem('username');
+        if (username) {
+
+            accountContent.innerHTML = `
             <div style="display: flex; flex-direction: column; align-items: flex-start;">
                 <span id="account-button">${username}</span>
                 <a href="#" id="logout-link">Çıkış Yap</a>
             </div>
         `;
 
-        const logoutLink = document.getElementById('logout-link');
-        logoutLink.addEventListener('click', () => {
-            
-            sessionStorage.removeItem('user_id');
-            sessionStorage.removeItem('username');
-            
-            window.location.reload();
-        });
-    } else {
-        
-        accountContent.innerHTML = `
+            const logoutLink = document.getElementById('logout-link');
+            logoutLink.addEventListener('click', () => {
+
+                sessionStorage.removeItem('user_id');
+                sessionStorage.removeItem('username');
+
+                window.location.reload();
+            });
+        } else {
+
+            accountContent.innerHTML = `
             <a href="./pages/login.php" id="account-button">Giriş Yap</a>
         `;
+        }
+    });
+
+    if (sessionStorage.getItem('user_id') != null) {
+        document.cookie = "user_id=" + sessionStorage.getItem('user_id') + "; path=/";
+        console.log(document.cookie);
     }
-});
 </script>
