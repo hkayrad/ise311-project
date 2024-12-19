@@ -79,38 +79,40 @@
 
     <div class="body" style="margin:0px; width: 100%;">
 
+        <div class="cart">
+            <?php
 
-        <?php
-
-        include '../config.php';
-
-
-        $query = "SELECT * FROM cart WHERE user_id = " . $_COOKIE['user_id'] . ";";
-        $result = mysqli_query($conn, $query);
-
-        if (!$result) {
-            die("Query error! " . mysqli_error($conn));
-        }
-
-        $totalItems = mysqli_num_rows($result);
+            include '../config.php';
 
 
+            $query = "SELECT * FROM cart WHERE user_id = " . $_COOKIE['user_id'] . ";";
+            $result = mysqli_query($conn, $query);
 
-        if (mysqli_num_rows($result) > 0) {
+            if (!$result) {
+                die("Query error! " . mysqli_error($conn));
+            }
 
-            echo "<div class='products'>";
+            $totalItems = mysqli_num_rows($result);
 
-            while ($row = mysqli_fetch_assoc($result)) {
-                $q = "SELECT * FROM products WHERE id = " . $row['product_id'] . ";";
-                $r = mysqli_query($conn, $q);
+            $total = 0;
 
-                if (!$r) {
-                    die("Query error! " . mysqli_error($conn));
-                }
 
-                $product = mysqli_fetch_assoc($r);
+            if (mysqli_num_rows($result) > 0) {
 
-                echo "<div id='product'>
+                echo "<div class='products'>";
+
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $q = "SELECT * FROM products WHERE id = " . $row['product_id'] . ";";
+                    $r = mysqli_query($conn, $q);
+
+                    if (!$r) {
+                        die("Query error! " . mysqli_error($conn));
+                    }
+
+                    $product = mysqli_fetch_assoc($r);
+                    $total += $product['price'];
+
+                    echo "<div id='product'>
                 <img src='" . $product['image'] . "' />
                 <div>
                     <h1>" . $product['brand'] . " " . $product['model'] . "</h1>
@@ -120,21 +122,26 @@
                     <img src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZjYwMDAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS10cmFzaC0yIj48cGF0aCBkPSJNMyA2aDE4Ii8+PHBhdGggZD0iTTE5IDZ2MTRjMCAxLTEgMi0yIDJIN2MtMSAwLTItMS0yLTJWNiIvPjxwYXRoIGQ9Ik04IDZWNGMwLTEgMS0yIDItMmg0YzEgMCAyIDEgMiAydjIiLz48bGluZSB4MT0iMTAiIHgyPSIxMCIgeTE9IjExIiB5Mj0iMTciLz48bGluZSB4MT0iMTQiIHgyPSIxNCIgeTE9IjExIiB5Mj0iMTciLz48L3N2Zz4=' />
                 </button>
                 </div>";
-            }
-        } else {
-            echo "<div style='background-color: white; text-align: center; padding: 20px; margin: 0 auto; width: 60%;'>
+                }
+            } else {
+                echo "<div style='background-color: white; text-align: center; padding: 20px; margin: 0 auto; width: 60%;'>
             <p style='font-size: 24px; font-weight: bold; margin: 0;'>Sepetin şu an boş</p>
             <p style='font-size: 16px; margin-top: 10px;'>
             Sepetini Hepsiburada’nın fırsatlarla dolu dünyasından doldurmak için <br>
-            aşağıdaki ürünleri incelemeye başlayabilirsin. </p> </div>";
-        }
+            aşağıdaki ürünleri incelemeye başlayabilirsin. </p>";
+            }
 
-        echo "</div>";
+            ?>
+        </div>
 
-        ?>
+        <div id='aside'>
+            <div id='total'>
+                <h1>Toplam</h1>
+                <p><?php echo $total?> ₺</p>
+            </div>
+            <button id='checkout'>Ödeme Yap</button>
+        </div>
     </div>
-
-
 
 </body>
 
