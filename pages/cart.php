@@ -124,7 +124,7 @@
                 </div>";
                 }
             } else {
-                echo "<div style='background-color: white; text-align: center; padding: 20px; margin: 0 auto; width: 60%;'>
+                echo "<div style='text-align: center; padding: 20px; margin: auto auto; width: 60%;'>
             <p style='font-size: 24px; font-weight: bold; margin: 0;'>Sepetin şu an boş</p>
             <p style='font-size: 16px; margin-top: 10px;'>
             Sepetini Hepsiburada’nın fırsatlarla dolu dünyasından doldurmak için <br>
