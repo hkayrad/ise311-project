@@ -166,13 +166,14 @@
 			$prodcuts = mysqli_query($conn, $query);
 
 			if (!$prodcuts) {
+
 				die("Query error! " . mysqli_error($conn));
 			} else {
 				while ($row = mysqli_fetch_assoc($prodcuts)) {
 					echo "<p>" . $row['brand'] . "</p>";
 				}
 			}
-
+echo $_SESSION ["username"];
 			?>
 
 			<div id="productCard">

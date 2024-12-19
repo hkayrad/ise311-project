@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user && password_verify($password, $user['password'])) {
+            
             echo "<script>
                     sessionStorage.setItem('user_id', '{$user['user_id']}');
                     sessionStorage.setItem('username', '{$user['username']}');
@@ -57,13 +58,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             text-align: center;
         }
-        
 
         .login-container h1 {
             margin-bottom: 20px;
         }
 
-        
         .login-container form {
             width: 250px; 
             margin: 0 auto;
@@ -130,3 +129,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </body>
 </html>
+
