@@ -54,8 +54,8 @@
 
         body {
             display: flex;
+            justify-content: center;
             flex-direction: column-reverse;
-            justify-content: center; 
             align-items: center; 
             background: #f0f0f0;
             font-family: Arial, sans-serif;
