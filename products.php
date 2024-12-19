@@ -38,6 +38,9 @@
                 <h1>" . $product['brand'] . " " . $product['model'] . "</h1>
                 <p id='rating'>" . str_repeat("⭐", $product['rating']) . "</p>
                 <p id='price'>" . $product['price'] . " ₺</p>
+                <p>CPU: ".$product['cpu']."</p>
+                <p>RAM: ".$product['ram']." GB</p>
+                <p>Storage: ".$product['storage']." GB</p>
                 <p id='seller'>Satıcı: <span>Hepsiburada</span></p>
                 <div id='cartButton'><!-- //! JS ILE EKLENIYOR -->
                 </div>
