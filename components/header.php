@@ -42,14 +42,8 @@
                 <div class="my-account">
                     <img id="account-icon" src="./assets/icons/account.svg" alt="">
                     <div class="outer-wrapper">
-<<<<<<< Updated upstream
-                        <p id="account-button-title">Hesabım</p>
-                        <div class="inner-wrapper">
-                            <a href="./pages/login.php" id="account-button">Giriş Yap</a>
-=======
                         <div class="inner-wrapper" id="account-content">
                             <!-- JS ile doldurulacak -->
->>>>>>> Stashed changes
                         </div>
                     </div>
                     <img id="chevron" src="./assets/icons/chevron_account.svg" alt="">
