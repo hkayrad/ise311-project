@@ -42,8 +42,8 @@
                 <div class="my-account">
                     <img id="account-icon" src="./assets/icons/account.svg" alt="">
                     <div class="outer-wrapper">
-                        <div class="inner-wrapper">
-                            <a href="./pages/login.php" id="account-button">Giriş Yap</a>
+                        <div class="inner-wrapper" id="account-content">
+                            <!-- JS ile doldurulacak -->
                         </div>
                     </div>
                     <img id="chevron" src="./assets/icons/chevron_account.svg" alt="">
@@ -57,3 +57,33 @@
     </div>
     <img id="bottom-accent" src="./assets/brand/accent.svg" alt="">
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const accountContent = document.getElementById('account-content');
+    const username = sessionStorage.getItem('username');
+    if (username) {
+        
+        accountContent.innerHTML = `
+            <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                <span id="account-button" style="margin-bottom: 5px;">${username}</span>
+                <a href="#" id="logout-link">Çıkış Yap</a>
+            </div>
+        `;
+
+        const logoutLink = document.getElementById('logout-link');
+        logoutLink.addEventListener('click', () => {
+            
+            sessionStorage.removeItem('user_id');
+            sessionStorage.removeItem('username');
+            
+            window.location.reload();
+        });
+    } else {
+        
+        accountContent.innerHTML = `
+            <a href="./pages/login.php" id="account-button">Giriş Yap</a>
+        `;
+    }
+});
+</script>
