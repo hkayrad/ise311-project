@@ -8,10 +8,8 @@ body {
     }
 
   #content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin: 64px 10vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 32px;
 
     #aside {
@@ -90,7 +88,7 @@ body {
       gap: 24px;
 
       #productCard {
-        width: 300px;
+        width: 100%;
         height: fit-content;
         display: flex;
         flex-direction: column;
@@ -100,7 +98,6 @@ body {
         border: #c1c1c1 1px solid;
 
         #productImg {
-          width: 100%;
           height: fit-content;
         }
       }
