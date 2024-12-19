@@ -25,7 +25,7 @@
             theForm = document.createElement('form');
 
             theForm = document.createElement('form');
-            theForm.action = './components/handleRemoveFromCart.php';
+            theForm.action = '../components/handleRemoveFromCart.php';
             theForm.method = 'POST';
 
             newInput1 = document.createElement('input');
@@ -49,6 +49,7 @@
 </head>
 
 <body style="background-color: rgb(245, 245, 245);">
+    <div id="hidden_form_container" style="display:none;"></div>
     <div class="header" style="background-color: white">
         <div class="logo-container">
             <a href="../">
