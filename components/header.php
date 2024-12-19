@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         accountContent.innerHTML = `
             <div style="display: flex; flex-direction: column; align-items: flex-start;">
-                <span id="account-button" style="margin-bottom: 5px;">${username}</span>
+                <span id="account-button">${username}</span>
                 <a href="#" id="logout-link">Çıkış Yap</a>
             </div>
         `;
