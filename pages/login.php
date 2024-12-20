@@ -61,12 +61,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .login-container h1 {
-            margin-bottom: 20px;
+            margin-bottom: 32px;
         }
 
         .login-container form {
             width: 250px; 
             margin: 0 auto;
+            display: flex;
+            flex-direction: column;
         }
 
         .login-container label {
@@ -74,11 +76,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin-bottom: 5px;
             font-weight: bold;
             text-align: left;
+            width: fit-content;
         }
 
         .login-container input[type="text"], 
         .login-container input[type="password"] {
-            width: 100%;
             padding: 8px;
             margin-bottom: 15px;
             border: 1px solid #ccc;
@@ -94,6 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             color: #fff;
             font-weight: bold;
             cursor: pointer;
+            margin: 24px 0 0 0;
         }
 
         .login-container a {
@@ -128,5 +131,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <a href="./register.php">Kayıt Ol</a>
         </form>
     </div>
+    <a href="../"><img src="../assets/brand/logo.svg" alt="logo" style="width: 350px; position:absolute; top:100px; left:0; right:0; margin: auto;"></a>
 </body>
 </html>

@@ -67,16 +67,17 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             text-align: center;
-            width: 300px;
         }
 
         .register-container h1 {
-            margin-bottom: 20px;
+            margin-bottom: 32px;
         }
 
         .register-container form {
-            width: 100%;
+            width: 250px;
             margin: 0 auto;
+            display: flex;
+            flex-direction: column;
         }
 
         .register-container label {
@@ -89,7 +90,6 @@
         .register-container input[type="text"], 
         .register-container input[type="email"], 
         .register-container input[type="password"] {
-            width: 100%;
             padding: 8px;
             margin-bottom: 15px;
             border: 1px solid #ccc;
@@ -105,6 +105,7 @@
             color: #fff;
             font-weight: bold;
             cursor: pointer;
+            margin: 24px 0 0 0;
         }
 
         .register-container a {
@@ -149,6 +150,7 @@
             <a href="./login.php" class="login-link">Hesabın var mı? Giriş Yap</a>
         </form>
     </div>
+    <a href="../"><img src="../assets/brand/logo.svg" alt="logo" style="width: 350px; position:absolute; top:100px; left:0; right:0; margin: auto;"></a>
 </body>
 
 </html>
