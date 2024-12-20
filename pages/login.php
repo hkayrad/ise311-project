@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .login-container h1 {
-            margin-bottom: 20px;
+            margin-bottom: 32px;
         }
 
         .login-container form {
@@ -131,5 +131,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <a href="./register.php">Kayıt Ol</a>
         </form>
     </div>
+    <a href="../"><img src="../assets/brand/logo.svg" alt="logo" style="width: 350px; position:absolute; top:100px; left:0; right:0; margin: auto;"></a>
 </body>
 </html>

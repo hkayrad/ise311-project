@@ -70,7 +70,7 @@
         }
 
         .register-container h1 {
-            margin-bottom: 20px;
+            margin-bottom: 32px;
         }
 
         .register-container form {
@@ -150,6 +150,7 @@
             <a href="./login.php" class="login-link">Hesabın var mı? Giriş Yap</a>
         </form>
     </div>
+    <a href="../"><img src="../assets/brand/logo.svg" alt="logo" style="width: 350px; position:absolute; top:100px; left:0; right:0; margin: auto;"></a>
 </body>
 
 </html>
