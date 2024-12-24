@@ -1,0 +1,114 @@
+body #title {
+  margin: 64px 10vw;
+}
+body #title h1 {
+  font-weight: 400;
+}
+body #content {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+  gap: 32px;
+  padding: 0 128px;
+  margin: 0 0 64px 0;
+}
+body #content #aside {
+  border: 1px solid #c1c1c1;
+  border-radius: 12px;
+  padding: 16px;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+}
+body #content #aside #filterTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body #content #aside #filterTitle button {
+  padding: 4px 8px;
+  background-color: #ff6000;
+  outline: none;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
+body #content #aside #filterTitle button:hover {
+  cursor: pointer;
+}
+body #content #aside span {
+  display: flex;
+  width: 100%;
+  height: 1px;
+  background-color: #c1c1c1;
+  margin: 8px 0 0 0;
+}
+body #content #aside .filters {
+  display: flex;
+  flex-direction: column;
+}
+body #content #aside .filters h4 {
+  margin: 12px 0 8px 0;
+}
+body #content #aside .filters button[type=submit] {
+  padding: 12px;
+  background-color: #ff6000;
+  outline: none;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin: 12px 0 0 0;
+}
+body #content #aside .filters #price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body #content #aside .filters #price input {
+  width: 45%;
+  padding: 8px;
+  border: 1px solid #c1c1c1;
+  border-radius: 6px;
+}
+body #content #mainContent {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  height: -moz-fit-content;
+  height: fit-content;
+  gap: 24px;
+}
+@media screen and (max-width: 1500px) {
+  body #content #mainContent {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (max-width: 1200px) {
+  body #content #mainContent {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+body #content #mainContent #productCard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 16px;
+  border-radius: 8px;
+  border: #c1c1c1 1px solid;
+  color: #000;
+  text-decoration: none;
+}
+body #content #mainContent #productCard #productImg {
+  width: 50%;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 0 auto 16px auto;
+}
+body #content #mainContent #productCard h2, body #content #mainContent #productCard p {
+  width: -moz-fit-content;
+  width: fit-content;
+}/*# sourceMappingURL=main.css.map */
