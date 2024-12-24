@@ -4,229 +4,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./assets/brand/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./index.css">
+    <title>Hepsiburada</title>
+    <link rel="stylesheet" href="./index.css"> <!-- Page styles -->
     <link rel="stylesheet" href="./styles/index/index.css"> <!-- Page styles -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    <title>Hepsiburada</title>
-
-    <script>
-        const resetSearchParams = () => {
-            window.location.href = window.location.href.split("?")[0];
-        }
-    </script>
 </head>
 
 <body>
-    <div id="form">
-    </div>
     <?php
-    include "./config.php"; //? Connect to database
+
     include './components/header.php'; //? Put header to index.php
+
     ?>
-    <div id="title">
-        <h1>Bilgisayar Fiyatları ve Modelleri</h1>
+    <div id="categories">
+        <a href="./main.php">Elektronik</a>
+        <a href="">Moda</a>
+        <a href="">Ev, Yaşam, Kırtasiye, Ofis</a>
+        <a href="">Oto, Bahçe, Yapı Market</a>
+        <a href="">Anne, Bebek, Oyuncak</a>
+        <a href="">Spor, Outdoor</a>
+        <a href="">Kozmetik, Kişisel Bakım</a>
+        <a href="">Süpermarket, Pet Shop</a>
+        <a href="">Kitap, Müzik, Film, Hobi</a>
     </div>
-    <div id="content">
-        <div id="aside">
-            <div id="filterTitle">
-                <h3>Filtreler</h3>
-                <button onclick="resetSearchParams()">Clear</button>
-            </div>
-            <span></span>
-
-            <form class="filters" action="./" method="GET">
-                <h4>Tür</h4>
-                <?php
-                $searchQuery = isset($_GET['s']) ? $_GET['s'] : '';
-                echo "<input style=\"display:none\" type=\"text\" name=\"s\" value=\"" . $searchQuery . "\" />"; // Prevent search from disappearing after using filters
-                
-                // Dynamically add types
-                $typeQuery = "SELECT DISTINCT type FROM products";
-                $typeResult = mysqli_query($conn, $typeQuery);
-
-                if (!$typeResult) {
-                    die("Query error! " . mysqli_error($conn));
-                } else {
-                    while ($row = mysqli_fetch_assoc($typeResult)) {
-                        echo "<div>
-                            <input type=\"checkbox\" name=\"type[]\" value=\"" . strtolower($row['type']) . "\" id=\"" . $row['type'] . "\" />
-                            <label for=\"" . $row['type'] . "\">" . ucfirst($row['type']) . "</label>
-                        </div>";
-                    }
-                }
-                ?>
-
-                <h4>Marka</h4>
-                <?php 
-                // Dynamically add brands
-                $brandQuery = "SELECT DISTINCT brand FROM products";
-                $brandResult = mysqli_query($conn, $brandQuery);
-
-                if (!$brandResult) {
-                    die("Query error! " . mysqli_error($conn));
-                } else {
-                    while ($row = mysqli_fetch_assoc($brandResult)) {
-                        echo "<div>
-                            <input type=\"checkbox\" name=\"brand[]\" value=\"" . strtolower($row['brand']) . "\" id=\"" . $row['brand'] . "\" />
-                            <label for=\"" . $row['brand'] . "\">" . $row['brand'] . "</label>
-                        </div>";
-                    }
-                }
-                ?>
-
-                <h4>Fiyat</h4>
-                <div id="price">
-                    <input type="number" name="price[min]" placeholder="Min" />
-                    <p>-</p>
-                    <input type="number" name="price[max]" placeholder="Max" />
-                </div>
-                <h4>Rating</h4>
-                <?php 
-                // Dynamically add ratings
-                $ratingQuery = "SELECT DISTINCT rating FROM products ORDER BY rating DESC";
-                $ratingResult = mysqli_query($conn, $ratingQuery);
-
-                if (!$ratingResult) {
-                    die("Query error! " . mysqli_error($conn));
-                } else {
-                    while ($row = mysqli_fetch_assoc($ratingResult)) {
-                        echo "<div>
-                            <input type=\"radio\" name=\"rating\" value=\"" . $row['rating'] . "\" id=\"" . $row['rating'] . "\" />
-                            <label for=\"" . $row['rating'] . "\">" . str_repeat('⭐', $row['rating']) . "</label>
-                        </div>";
-                    }
-                }
-                ?>
-
-                <h4>CPU</h4>
-                <?php
-                // Dynamically add CPUs
-                $cpuQuery = "SELECT DISTINCT cpu FROM products";
-                $cpuResult = mysqli_query($conn, $cpuQuery);
-
-                if (!$cpuResult) {
-                    die("Query error! " . mysqli_error($conn));
-                } else {
-                    while ($row = mysqli_fetch_assoc($cpuResult)) {
-                        echo "<div>
-                            <input type=\"checkbox\" name=\"cpu[]\" value=\"" . $row['cpu'] . "\" id=\"" . $row['cpu'] . "\" />
-                            <label for=\"" . $row['cpu'] . "\">" . $row['cpu'] . "</label>
-                        </div>";
-                    }
-                }
-                ?>
-
-                <h4>RAM</h4>
-                <?php
-                // Dynamically add RAM sizes
-                $ramQuery = "SELECT DISTINCT ram FROM products";
-                $ramResult = mysqli_query($conn, $ramQuery);
-
-                if (!$ramResult) {
-                    die("Query error! " . mysqli_error($conn));
-                } else {
-                    while ($row = mysqli_fetch_assoc($ramResult)) {
-                        echo "<div>
-                            <input type=\"checkbox\" name=\"ram[]\" value=\"" . $row['ram'] . "\" id=\"" . $row['ram'] . "\" />
-                            <label for=\"" . $row['ram'] . "\">" . $row['ram'] . " GB</label>
-                        </div>";
-                    }
-                }
-                ?>
-
-                <h4>Depolama</h4>
-                <?php
-                // Dynamically add storage sizes
-                $storageQuery = "SELECT DISTINCT storage FROM products";
-                $storageResult = mysqli_query($conn, $storageQuery);
-
-                if (!$storageResult) {
-                    die("Query error! " . mysqli_error($conn));
-                } else {
-                    while ($row = mysqli_fetch_assoc($storageResult)) {
-                        echo "<div>
-                            <input type=\"checkbox\" name=\"storage[]\" value=\"" . $row['storage'] . "\" id=\"" . $row['storage'] . "\" />
-                            <label for=\"" . $row['storage'] . "\">" . $row['storage'] . " GB</label>
-                        </div>";
-                    }
-                }
-                ?>
-
-                <button type="submit">Filtreleri Kaydet</button>
-            </form>
-        </div>
-
-        <div id="mainContent">
+    <div id="discounts">
+        <img src="https://images.hepsiburada.net/banners/s/1/180-180/yilbasi-pazari-jenerik-tr_(1)133790920557427705.png" alt="">
+        <img src="https://images.hepsiburada.net/banners/s/1/180-180/supermarket-tr-25133789235050640589.png" alt="">
+        <img src="https://images.hepsiburada.net/banners/s/1/180-180/premium-tr133788033170446931.png" alt="">
+        <img src="https://images.hepsiburada.net/banners/s/1/180-180/gra-186725-hepsipay-36-ay-tr-1_(1)133794056978271084.png" alt="">
+        <img src="https://images.hepsiburada.net/banners/s/1/180-180/dort_dortluk-jenerik-tr133785712967254852.png" alt="">
+        <img src="https://images.hepsiburada.net/banners/s/1/180-180/sarj_urunleri-tr-2133788986261587072.png" alt="">
+        <img src="https://images.hepsiburada.net/banners/s/1/180-180/gra-187020-honor_magic_v3-takas-tr133794273954791777.png" alt="">
+        <img src="https://images.hepsiburada.net/banners/s/1/180-180/hepsi_gamer-tr133794346492661999.png" alt="">
+        <img src="https://images.hepsiburada.net/banners/s/1/180-180/gra-187007-kozmetik-25-tr-1_(1)_(1)133794438740810468.png" alt="">
+        <img src="https://images.hepsiburada.net/banners/s/1/180-180/elektronik-jenerik-tr133785710311348038.png" alt="">
+        <img src="https://images.hepsiburada.net/banners/s/1/180-180/skechers-tr133785698789675862.png" alt="">
+        <img src="https://images.hepsiburada.net/banners/s/1/180-180/kucuk_ev_aletleri-firsat-saatleri-tr133794293779481340.png" alt="">
+    </div>
+    <div id="banners">
+        <img src="https://images.hepsiburada.net/banners/s/1/819-357/164546_app133543713539247699133775976383458133.png" alt="">
+        <img src="./assets/brand/banner.png" alt="">
+    </div>
+    <div id="recommended">
+        <h1>Size Önerilenler</h1>
+        <div id="products">
             <?php
-            // Capture filter values from the URL (using GET)
-            $types = isset($_GET['type']) ? $_GET['type'] : [];
-            $brands = isset($_GET['brand']) ? $_GET['brand'] : [];
-            $search = isset($_GET['s']) ? $_GET['s'] : '';
-            $price = isset($_GET['price']) ? $_GET['price'] : [];
-            $rating = isset($_GET['rating']) ? $_GET['rating'] : [];
-            $cpu = isset($_GET['cpu']) ? $_GET['cpu'] : [];
-            $ram = isset($_GET['ram']) ? $_GET['ram'] : [];
-            $storage = isset($_GET['storage']) ? $_GET['storage'] : [];
 
-            // Start building the query
-            $query = "SELECT * FROM products WHERE 1=1"; // "WHERE 1=1" is just a placeholder to make adding conditions easier
-
-            // Apply filters based on user input
-            if (!empty($types)) {
-                $query .= " AND type IN ('" . implode("','", $types) . "')";
-            }
-
-            if (!empty($brands)) {
-                $query .= " AND brand IN ('" . implode("','", $brands) . "')";
-            }
-
-            if (!empty($price['min']) && !empty($price['max'])) {
-                $query .= " AND price BETWEEN " . $price['min'] . " AND " . $price['max'];
-            } elseif (!empty($price['min'])) {
-                $query .= " AND price >= " . $price['min'];
-            } elseif (!empty($price['max'])) {
-                $query .= " AND price <= " . $price['max'];
-            }
-
-            if (!empty($rating)) {
-                $query .= " AND rating = " . $rating;
-            }
-
-            if (!empty($cpu)) {
-                $query .= " AND cpu IN ('" . implode("','", $cpu) . "')";
-            }
-
-            if (!empty($ram)) {
-                $query .= " AND ram IN ('" . implode("','", $ram) . "')";
-            }
-
-            if (!empty($storage)) {
-                $query .= " AND storage IN ('" . implode("','", $storage) . "')";
-            }
-
-            if (!empty($search)) {
-                $query .= " AND (brand LIKE '%" . $search . "%' OR model LIKE '%" . $search . "%')";
-            }
-
-            // Execute the query
-            $prodcuts = mysqli_query($conn, $query);
-
-            // Check for errors
-            if (!$prodcuts) {
-                die("Query error! " . mysqli_error($conn));
-            } else {
-                // Display the products
-                while ($row = mysqli_fetch_assoc($prodcuts)) {
-                    echo "<a href='./products.php?id=" . $row['id'] . "' id='productCard'>
-                            <img id='productImg' src='" . $row['image'] . "'/>
-                            <h2>" . $row['brand'] . " " . $row['model'] . "</h2>
-							<p>". str_repeat("⭐", $row['rating'])."</p>
-                            <p>" . $row['price'] . " ₺</p>
-                          </a>";
-                }
+            for ($i = 0; $i < 16; $i++) {
+                echo "<div id='product'>
+                <img src='https://placehold.co/200x200' alt=''>
+                <h2>Product Name</h2>
+                <p>Price</p>
+            </div>";
             }
             ?>
         </div>
