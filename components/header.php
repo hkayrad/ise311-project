@@ -22,7 +22,7 @@
                 <a href="">Hepsiburada'da Satıcı Ol</a>
             </div>
             <div class="other">
-                <form class="search" action="./" method="GET"> <!-- Search function -->
+                <form class="search" action="./main.php" method="GET"> <!-- Search function -->
                     <img id="accent" src="./assets/brand/accent.svg" alt="">
                     <div class="search-icon-wrapper">
                         <img src="./assets/icons/search.svg">
