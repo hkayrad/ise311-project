@@ -37,7 +37,7 @@
             </div>
             <span></span>
 
-            <form class="filters" action="./" method="GET">
+            <form class="filters" action="./main.php" method="GET">
                 <h4>Tür</h4>
                 <?php
                 $searchQuery = isset($_GET['s']) ? $_GET['s'] : '';
